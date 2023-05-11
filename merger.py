@@ -1,8 +1,8 @@
 import os
 from PyPDF2 import PdfReader, PdfMerger
 
-# Set the directory path
-dir_path = "G:\My Drive\PDF Merger Folder"
+# Set the directory path relative to the script file
+dir_path = os.path.join(os.path.dirname(__file__))
 
 # Create a list of PDF files in the directory and sort them based on file name
 pdf_files = sorted([os.path.join(dir_path, f) for f in os.listdir(dir_path) if f.endswith('.pdf') and f != 'output.pdf'], key=lambda x: int(os.path.splitext(os.path.basename(x))[0]))
